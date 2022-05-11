@@ -11,7 +11,7 @@ char *_strchr(char *s, char c);
  *
  *Return: number of bytes of s in accept
  */
-unsigned int _strspn(char *s, char *accept)
+int _strspn(char *s, char *accept)
 {
 	unsigned int i, j;
 	/* blank line */
