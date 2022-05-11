@@ -1,6 +1,6 @@
 #include "shell.h"
 
-unsigned int _strspn(char *s, char *accept);
+int _strspn(char *s, char *accept);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 
@@ -13,7 +13,7 @@ char *_strchr(char *s, char c);
  */
 int _strspn(char *s, char *accept)
 {
-	unsigned int i, j;
+	int i, j;
 	/* blank line */
 	for (i = 0; s[i]; i++)
 	{
