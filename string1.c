@@ -13,20 +13,20 @@ char *_strchr(char *s, char c);
  */
 unsigned int _strspn(char *s, char *accept)
 {
-        unsigned int i, j;
-        /* blank line */
-        for (i = 0; s[i]; i++)
-        {
-                for (j = 0; accept[j]; j++)
-                {
-                        if (s[i] == accept[j])
-                                break;
-                }
-                if (!accept[j])
-                        break;
-        }
-        return (i);
-} 
+	unsigned int i, j;
+	/* blank line */
+	for (i = 0; s[i]; i++)
+	{
+		for (j = 0; accept[j]; j++)
+		{
+			if (s[i] == accept[j])
+				break;
+		}
+		if (!accept[j])
+			break;
+	}
+	return (i);
+}
 
 /**
  * _strcmp - compares two strings
@@ -52,15 +52,15 @@ int _strcmp(char *s1, char *s2)
 */
 char *_strchr(char *s, char c)
 {
-        int i;
-        /*blank line */
-        for (i = 0; *(s + i); i++)
-        {
-                /* blank line */
-                if (*(s + i) == c)
-                        return (s + i);
-        }
-        if (*(s + i) == c)
-                return (s + i);
-        return (0);
+	int i;
+	/*blank line */
+	for (i = 0; *(s + i); i++)
+	{
+		/* blank line */
+		if (*(s + i) == c)
+			return (s + i);
+	}
+	if (*(s + i) == c)
+		return (s + i);
+		return (0);
 }
