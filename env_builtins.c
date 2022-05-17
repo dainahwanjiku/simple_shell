@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- *check_for_builtins - checks if the command is a builtin
- *@vars: variables
- *Return: pointer to the function or NULL
- */
+*check_for_builtins - checks if the command is a builtin
+*@vars: variables
+*Return: pointer to the function or NULL
+*/
 void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 {
 	unsigned int i;
@@ -28,8 +28,8 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 
 /**
 *new_exit - exit program
-*@vars: variables
-*Return: void
+* @vars: variables
+* Return: void
 */
 void new_exit(vars_t *vars)
 {
@@ -58,9 +58,9 @@ void new_exit(vars_t *vars)
 }
 
 /**
- *_env - prints the current environment
- *@vars: struct of variables
- *Return: void.
+ * _env - prints the current environment
+ * @vars: struct of variables
+ * Return: void.
  */
 void _env(vars_t *vars)
 {
