@@ -27,10 +27,10 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 }
 
 /**
- * new_exit - exit program
- * @vars: variables
- * Return: void
- */
+*new_exit - exit program
+* @vars: variables
+* Return: void
+*/
 void new_exit(vars_t *vars)
 {
 	int status;
@@ -75,10 +75,10 @@ void _env(vars_t *vars)
 }
 
 /**
- * new_setenv - create a new environment variable, or edit an existing variable
- * @vars: pointer to struct of variables
- *
- * Return: void
+*new_setenv - create a new environment variable,
+ *or edit an existing variable
+ *@vars: pointer to struct of variables
+ *Return: void
  */
 void new_setenv(vars_t *vars)
 {
@@ -113,10 +113,10 @@ void new_setenv(vars_t *vars)
 }
 
 /**
- * new_unsetenv - remove an environment variable
- * @vars: pointer to a struct of variables
+ *new_unsetenv - remove an environment variable
+ *@vars: pointer to a struct of variables
  *
- * Return: void
+ *Return: void
  */
 void new_unsetenv(vars_t *vars)
 {
