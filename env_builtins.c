@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * check_for_builtins - checks if the command is a builtin
- * @vars: variables
- * Return: pointer to the function or NULL
- */
+*check_for_builtins - checks if the command is a builtin
+*@vars: variables
+*Return: pointer to the function or NULL
+*/
 void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 {
 	unsigned int i;
