@@ -1,41 +1,75 @@
 #include "shell.h"
 
-/**
- * make_env - make the shell environment from the environment passed to main
- * @env: environment passed to main
- *
- * Return: pointer to the new environment
- */
-char **make_env(char **env)
-{
-	char **newenv = NULL;
-	size_t i;
+char **_copyenv(void);
+void free_env(void);
+char **_getenv(const char *var);
 
-	for (i = 0; env[i] != NULL; i++)
+/**
+ * _copyenv - Creates a copy of the environment.
+ *
+ * Return: If an error occurs - NULL.
+ *         O/w - a double pointer to the new copy.
+ */
+char **_copyenv(void)
+{
+	char **new_environ;
+	size_t size;
+	int index;
+
+	for (size = 0; environ[size]; size++)
 		;
-	newenv = malloc(sizeof(char *) * (i + 1));
-	if (newenv == NULL)
+
+	new_environ = malloc(sizeof(char *) * (size + 1));
+	if (!new_environ)
+		return (NULL);
+
+	for (index = 0; environ[index]; index++)
 	{
-		perror("Fatal Error");
-		exit(1);
+		new_environ[index] = malloc(_strlen(environ[index]) + 1);
+
+		if (!new_environ[index])
+		{
+			for (index--; index >= 0; index--)
+				free(new_environ[index]);
+			free(new_environ);
+			return (NULL);
+		}
+		_strcpy(new_environ[index], environ[index]);
 	}
-	for (i = 0; env[i] != NULL; i++)
-		newenv[i] = _strdup(env[i]);
-	newenv[i] = NULL;
-	return (newenv);
+	new_environ[index] = NULL;
+
+	return (new_environ);
 }
 
 /**
- * free_env - free the shell's environment
- * @env: shell's environment
- *
- * Return: void
+ * free_env - Frees the the environment copy.
  */
-void free_env(char **env)
+void free_env(void)
 {
-	unsigned int i;
+	int index;
 
-	for (i = 0; env[i] != NULL; i++)
-		free(env[i]);
-	free(env);
+	for (index = 0; environ[index]; index++)
+		free(environ[index]);
+	free(environ);
+}
+
+/**
+ * _getenv - Gets an environmental variable from the PATH.
+ * @var: The name of the environmental variable to get.
+ *
+ * Return: If the environmental variable does not exist - NULL.
+ *         Otherwise - a pointer to the environmental variable.
+ */
+char **_getenv(const char *var)
+{
+	int index, len;
+
+	len = _strlen(var);
+	for (index = 0; environ[index]; index++)
+	{
+		if (_strncmp(var, environ[index], len) == 0)
+			return (&environ[index]);
+	}
+
+	return (NULL);
 }
