@@ -49,13 +49,6 @@ typedef struct builtin_s
 	int (*f)(char **argv, char **front);
 } builtin_t;
 
-typedef struct builtins
-{
-	char *name;
-	void (*f)(vars_t *);
-} builtins_t;
-
-
 /**
  * struct alias_s - A new struct defining aliases.
  * @name: The name of the alias.
