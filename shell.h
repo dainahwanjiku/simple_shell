@@ -108,6 +108,13 @@ char **find_key(char **env, char *key);
 char *add_value(char *key, char *value);
 int _atoi(char *str);
 
+/* path */
+void check_for_path(vars_t *vars);
+int path_execute(char *command, vars_t *vars);
+char *find_path(char **env);
+int execute_cwd(vars_t *vars);
+int check_for_dir(char *str);
+
 /* Error Handling */
 int create_error(char **args, int err);
 char *error_env(char **args);
