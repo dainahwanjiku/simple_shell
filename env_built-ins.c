@@ -75,10 +75,10 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
 		free(new_value);
 		return (create_error(args, -1));
 	}
-
+        /* blank line */
 	for (index = 0; environ[index]; index++)
 		new_environ[index] = environ[index];
-
+        /* blank line */
 	free(environ);
 	environ = new_environ;
 	environ[index] = new_value;
@@ -101,7 +101,7 @@ int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
 	char **env_var, **new_environ;
 	size_t size;
 	int index, index2;
-
+        /* blank line */
 	if (!args[0])
 		return (create_error(args, -1));
 	env_var = _getenv(args[0]);
