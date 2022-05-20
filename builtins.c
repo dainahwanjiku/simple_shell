@@ -1,5 +1,6 @@
-
 #include "shell.h"
+
+/* prototypes below */
 int (*get_builtin(char *command))(char **args, char **front);
 int shellby_exit(char **args, char **front);
 int shellby_cd(char **args, char __attribute__((__unused__)) **front);
@@ -93,7 +94,7 @@ int shellby_cd(char **args, char __attribute__((__unused__)) **front)
 	char **dir_info, *new_line = "\n";
 	char *oldpwd = NULL, *pwd = NULL;
 	struct stat dir;
-
+        /* blank line here */
 	oldpwd = getcwd(oldpwd, 0);
 	if (!oldpwd)
 		return (-1);
